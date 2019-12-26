@@ -4,6 +4,7 @@
   "description": "Simple notes taking application",
   "main": "app.js",
   "scripts": {
+    "app": "node src/app.js",
     "test": "jest"
   },
   "repository": {
@@ -18,5 +19,8 @@
   "homepage": "https://github.com/akkrishnakumar/notes-app#readme",
   "devDependencies": {
     "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "yargs": "^15.0.2"
   }
 }
