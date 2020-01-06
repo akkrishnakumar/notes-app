@@ -21,17 +21,20 @@ test(
     () => {
         process.argv.push("list")
         require("../src/app.js");
-        expect(global.console.log).toHaveBeenCalledWith(testData)
+        expect(global.console.log).toHaveBeenCalledWith(testOutput)
     }
 )
 
 const resetTestDataSource = () => {
     console.log("Resetting test datasource...")
-    fs.writeFileSync(testDataSourceFile, testData, { flag: 'w' })
+    fs.writeFileSync(testDataSourceFile, testData.join('\n'), { flag: 'w' })
 }
 
-const testData =
-    `NOTES:
-1. Buy groceries
-2. Pay Electric Bill
-3. Walk the dog.`
+const testData = ['Buy groceries', 'Pay Electric Bill', 'Walk the dog']
+
+const testOutput = 
+`Notes:
+${testData
+    .map((note, index) => `${index + 1}. ${note}`)
+    .join('\n')
+}`
