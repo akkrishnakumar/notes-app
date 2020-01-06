@@ -1,4 +1,6 @@
-const listNotes = (dataSource) => {
+const loadNotes = (dataSource = () => undefined) => dataSource()
+
+const listNotes = (dataSource = () => undefined) => {
     console.log(
         `Notes:\n${dataSource()
             .split('\n')
@@ -9,5 +11,6 @@ const listNotes = (dataSource) => {
 }
 
 module.exports = {
+    loadNotes,
     listNotes
 }
