@@ -17,6 +17,13 @@ test(
     }
 )
 
+test(
+    'should load notes from dataSource',
+    () => {
+        const fetchedNotes = notes.loadNotes(() => testData)
+        expect(fetchedNotes).toBe(testData)
+    }
+)
 
 const dataSource = () => testData.join('\n')
 
