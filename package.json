@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "app": "node src/app.js",
-    "test": "jest --watch"
+    "test": "jest",
+    "watchTests": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,12 @@
   },
   "homepage": "https://github.com/akkrishnakumar/notes-app#readme",
   "devDependencies": {
-    "jest": "^24.9.0"
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@types/jest": "^24.0.25",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "jest-cli": "^24.9.0"
   },
   "dependencies": {
     "yargs": "^15.0.2"
