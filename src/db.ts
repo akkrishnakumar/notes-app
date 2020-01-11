@@ -1,6 +1,7 @@
 import fs from 'fs'
 
 export class DB {
+    private path: string
 
     constructor(path = '') {
         this.path = path
@@ -12,10 +13,15 @@ export class DB {
         return fileContents
     }
 
-    write(data) {
-        const err = fs.writeFileSync(this.path, data, { encoding: 'utf-8' })
-        if (err) return ''
-        return data
+    write(data: string): string {
+        try {
+            fs.writeFileSync(this.path, data, { encoding: 'utf-8' })
+            return data
+        } catch (e) {
+            console.log(e)
+            return ''
+            
+        }
     }
 
 }
