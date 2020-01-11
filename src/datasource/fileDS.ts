@@ -15,14 +15,13 @@ export class FileDB implements DataSource {
         return fileContents
     }
 
-    write(data: string): string {
+    write(data: string): boolean {
         try {
             fs.writeFileSync(this.path, data, { encoding: 'utf-8' })
-            return data
+            return true
         } catch (e) {
             console.log(e)
-            return ''
-            
+            return false   
         }
     }
 
