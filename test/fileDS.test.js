@@ -1,4 +1,4 @@
-import { DB } from '../src/db'
+import { FileDB } from '../src/datasource/fileDS'
 import fs from 'fs'
 
 jest.mock('fs')
@@ -15,7 +15,7 @@ test(
     'db should read data from source',
     () => {
 
-        const db = new DB()
+        const db = new FileDB()
         fs.readFileSync.mockReturnValue(testString(testData))   
 
         const input = db.read()
@@ -28,7 +28,7 @@ test(
     () => {
 
         const input = 'some text4'
-        const db = new DB()
+        const db = new FileDB()
         fs.writeFileSync = jest.fn(() => addData(input))
         db.write(input)
         
